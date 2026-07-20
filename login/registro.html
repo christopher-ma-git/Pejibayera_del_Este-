@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crear Cuenta - Pejibayera del Este</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="login-body">
+
+    <div class="registro-container">
+
+        <h1>Pejibayera del Este</h1>
+
+        <h2>Crear Cuenta</h2>
+
+        <form>
+
+            <label for="nombreUsuario">
+                Nombre de usuario
+            </label>
+
+            <input
+                type="text"
+                id="nombreUsuario"
+                name="nombreUsuario"
+                placeholder="Ingrese un nombre de usuario"
+            >
+
+            <label for="apellido">
+                Apellido (opcional)
+            </label>
+
+            <input
+                type="text"
+                id="apellido"
+                name="apellido"
+                placeholder="Ingrese su apellido"
+            >
+
+            <label for="correo">
+                Correo electrónico
+            </label>
+
+            <input
+                type="email"
+                id="correo"
+                name="correo"
+                placeholder="Ingrese su correo electrónico"
+            >
+
+            <label for="telefono">
+                Teléfono (opcional)
+            </label>
+
+            <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                placeholder="Ingrese su número de teléfono"
+            >
+
+            <label for="direccion">
+                Dirección
+            </label>
+
+            <input
+                type="text"
+                id="direccion"
+                name="direccion"
+                placeholder="Ingrese su dirección"
+            >
+
+            <p class="direccion-aviso">
+                La dirección no aplica para usuarios administradores.
+            </p>
+
+            <label for="tipoUsuario">
+                Tipo de usuario
+            </label>
+
+            <select id="tipoUsuario" name="tipoUsuario">
+
+                <option value="" selected disabled>
+                    Seleccione un tipo de usuario
+                </option>
+
+                <option value="cliente">
+                    Cliente
+                </option>
+
+                <option value="administrador">
+                    Administrador
+                </option>
+
+                <option value="empresa">
+                    Empresa
+                </option>
+
+            </select>
+
+            <button type="button">
+                Confirmar
+            </button>
+
+        </form>
+
+        <p class="registro-texto">
+            ¿Ya tiene una cuenta?
+            <a href="login.html">Iniciar sesión</a>
+        </p>
+
+    </div>
+
+</body>
+
+</html>
