@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pejibayera del Este - Inicio</title>
-    <link rel="stylesheet" href="./assets/css/Inicio.css">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="./assets/css/OtrasVistas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
-<body>
+<body class="body-container-profile">
 
     <!--ENCABEZADO-->
     <header class="topbar">
@@ -26,71 +27,79 @@
 
         <div class="actions">
             <div class="carrito">
-                <img id="img-carrito" src="../OtrasVistas/assets/img/ShopCar.png" alt="Carrito">
+                <img id="img-carrito" src="./assets/img/ShopCar.png" alt="Carrito">
                 <span class="cart-count">0</span>
             </div>
 
             <div class="usr">
-                <a href="../OtrasVistas/Perfil.html">
-                    <img id="img-logo-usr" src="../OtrasVistas/assets/img/User.png" alt="Perfil">
+                <a href="./Perfil.html">
+                    <img id="img-logo-usr" src="./assets/img/User.png" alt="Perfil">
                 </a>
             </div>
         </div>
 
     </header>
 
-    <main>
-        <section class="hero-section">
-            <div class="hero-text">
-                <h1>¡Bienvenido a Pejibayera del Este!</h1>
-                <p>Encuentra los mejores pejibayes frescos directamente del productor.</p>
-                <button type="button">Comprar ahora</button>
-            </div>
-            <div class="hero-image">
-                <img src="https://via.placeholder.com/320x200/d9531e/ffffff?text=Pejibayes+Frescos" alt="Pejibayes">
+    <main class="main-perfil">
+        <section class="usr-profile">
+            <h2>Perfil</h2>
+            <img id="user-img" src="./assets/img/User.png" alt="">
+            <h3>Usuario</h3>
+        </section>
+
+        <section class="historial-pedidos">
+            <h2>Historial de Pedidos</h2>
+
+            <div class="pedidos-container">
+                <div class="pd-entregados">
+                    <h3>Entregados</h3> <span>12 pedidos</span>
+                </div>
+
+                <div class="pd-encurso">
+                    <h3>En curso</h3> <span>2 pedidos</span>
+                </div>
+
+                <div class="pd-cancelados">
+                    <h3>Cancelados</h3><span>7 pedidos</span>
+                </div>
             </div>
         </section>
 
-        <section class="cards-section">
-            <h2>Productos Destacados</h2>
-            <div class="cards">
+        <section class="metodo-pago">
+            <h2>Métodos de Pago</h2>
 
-                <article class="card">
-                    <img src="https://via.placeholder.com/200/e65100/ffffff?text=Pejibaye+Grande" alt="Pejibaye Grande">
-                    <h3>Pejibaye grande</h3>
-                    <p>Recién cosechados de nuestra finca, ideales para cocinar.</p>
-                    <span class="precio">₡2,200</span>
-                    <button type="button"> <a href="../login/login.html">Agregar al carrito</a></button>
-                </article>
+            <div class="pago-container">
 
-                <article class="card">
-                    <img src="https://via.placeholder.com/200/ff8f00/ffffff?text=Pejibaye+Cocido"
-                        alt="Pejibaye Pequeño">
-                    <h3>Pejibaye pequeño</h3>
-                    <p>Listos para comer, cocidos al punto perfecto con sal.</p>
-                    <span class="precio">₡1,500</span>
-                    <button type="button"> <a href="../login/login.html">Agregar al carrito</a></button>
-                </article>
+                <div class="pago-card">
+                    <h3>→ Seleccionada Visa</h3> <span> **** **** **** 0112</span>
+                </div>
+                <div class="pago-card">
+                    <h3>MasterCard</h3> <span> **** **** **** 2412</span>
+                </div>
+            </div>
 
-                <article class="card">
-                    <img src="https://via.placeholder.com/200/8a3306/ffffff?text=Harina+Pejibaye"
-                        alt="Harina de Pejibaye">
-                    <h3>Harina de Pejibaye</h3>
-                    <p>Harina artesanal para preparar recetas saludables.</p>
-                    <span class="precio">₡4,800</span>
-                    <button type="button"> <a href="../login/login.html">Agregar al carrito</a></button>
-                </article>
-
+            <div class="btns-metodo-pago">
+                <button class="btn-actualizar-pago" type="submit">Actualizar Datos</button>
             </div>
         </section>
 
-        <section class="banner-promo">
-            <div>
-                <h2>¡Oferta de Temporada!</h2>
-                <p>Obtén un 25% de descuento en todos los pejibayes frescos durante esta semana.</p>
-            </div>
-            <button type="button"> <a href="../login/login.html">Aprovechar oferta</a></button>
-        </section>
+        <div class="frm-container-perfil">
+            <section class="frm-actualizar">
+                <h2>Actualizar Información</h2>
+                <form id="frm-userUpdate" action="">
+                    <label for="num-tarjeta">Número de Tarjeta</label>
+                    <input id="num-tarjeta" type="text" name="num-tarjeta" placeholder="1234 5678 9012 3456">
+
+                    <label for="fech-vencimiento">Fecha Vencimiento</label>
+                    <input id="fech-vencimiento" type="date" name="fech-vencimiento">
+
+                    <label for="pin">PIN</label>
+                    <input id="pin" type="password" name="pin" placeholder="123">
+                </form>
+                <button class="btn-frm-update" type="submit">Guardar</button>
+            </section>
+        </div>
+
     </main>
 
     <!--PIE DE PÁGINA-->
@@ -193,7 +202,6 @@
             </div>
         </div>
     </footer>
-
 </body>
 
 </html>

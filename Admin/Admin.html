@@ -4,158 +4,81 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Pejibayera del Este - Administrador</title>
-
-    <link rel="stylesheet" href="Admin.css">
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/Admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
 
 <body>
-
     <!-- CONTENEDOR-->
-
     <div class="dashboard">
 
         <!--MENÚ LATERAL-->
-
         <aside class="sidebar">
-
             <div class="logo">
 
                 <i class="fa-solid fa-seedling"></i>
-
                 <span>Pejibayera del Este</span>
 
             </div>
 
             <nav class="menu">
-
                 <a href="Admin.html" class="active">
-
                     <i class="fa-solid fa-chart-line"></i>
-
                     Dashboard
-
                 </a>
 
-                <a href="Clientes.html">
-
-                    <i class="fa-solid fa-users"></i>
-
-                    Clientes
-
-                </a>
-
-                <a href="Empresas.html">
-
+                <a href="../Empresa/Empresa.html">
                     <i class="fa-solid fa-building"></i>
-
-                    Empresas
-
+                    Empresa
                 </a>
 
-                <a href="Productos.html">
-
-                    <i class="fa-solid fa-box"></i>
-
-                    Productos
-
-                </a>
-
-                <a href="Pedidos.html">
-
-                    <i class="fa-solid fa-cart-shopping"></i>
-
-                    Pedidos
-
-                </a>
-
-                <a href="Reportes.html">
-
-                    <i class="fa-solid fa-chart-pie"></i>
-
-                    Reportes
-
-                </a>
-
-                <a href="Configuracion.html">
-
-                    <i class="fa-solid fa-gear"></i>
-
-                    Configuración
-
+                <a href="../Pagina Inicio/index.html">
+                    <i class="fa-solid fa-door-closed"></i>
+                    Cerrar Sesión
                 </a>
 
             </nav>
-
         </aside>
 
         <!--CONTENIDO-->
-
         <main class="contenido">
 
             <!--ENCABEZADO-->
-
             <header class="topbar">
 
                 <div class="busqueda">
-
                     <i class="fa-solid fa-magnifying-glass"></i>
-
-                    <input
-                        type="search"
-                        placeholder="Buscar clientes, pedidos o productos...">
-
+                    <input type="search" placeholder="Buscar clientes, pedidos o productos...">
                 </div>
 
                 <div class="acciones">
-
                     <button>
-
                         <i class="fa-regular fa-bell"></i>
-
                     </button>
 
                     <button>
-
                         <i class="fa-regular fa-envelope"></i>
-
                     </button>
 
                     <button>
-
                         <i class="fa-solid fa-plus"></i>
-
                     </button>
 
                     <div class="admin-info">
-
                         <div>
-
                             <h4>Administrador</h4>
-
                             <span>Pejibayera del Este</span>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </header>
 
             <!--TÍTULO-->
-
             <section class="bienvenida">
-
                 <h1>Dashboard</h1>
-
                 <p>
 
                     Bienvenido nuevamente. Aquí puede visualizar el
@@ -163,19 +86,15 @@
                     la plataforma.
 
                 </p>
-
             </section>
 
             <!--TARJETAS-->
-
             <section class="estadisticas">
 
                 <article class="estadistica">
 
                     <h4>Total Clientes</h4>
-
                     <h2>2,847</h2>
-
                     <span>+12% este mes</span>
 
                 </article>
@@ -183,9 +102,7 @@
                 <article class="estadistica">
 
                     <h4>Total Empresas</h4>
-
                     <h2>184</h2>
-
                     <span>+8% este mes</span>
 
                 </article>
@@ -193,9 +110,7 @@
                 <article class="estadistica">
 
                     <h4>Pedidos</h4>
-
                     <h2>5,621</h2>
-
                     <span>+17% este mes</span>
 
                 </article>
@@ -203,82 +118,59 @@
                 <article class="estadistica">
 
                     <h4>Ventas</h4>
-
                     <h2>₡128,430</h2>
-
                     <span>+22% este mes</span>
 
                 </article>
 
             </section>
-             <!--PANEL PRINCIPAL-->
 
+            <!--PANEL PRINCIPAL-->
             <section class="panel-dashboard">
 
                 <!-- Ventas -->
-
-                <article class="card grande">
+                <article class="card-grande">
 
                     <div class="titulo-card">
-
                         <h2>Ventas Mensuales</h2>
-
                         <span>Enero - Junio 2026</span>
-
                     </div>
 
                     <div class="grafico">
-
                         <div class="linea"></div>
-
                         <p>📈 Aquí irá el gráfico de ventas.</p>
-
                     </div>
 
                 </article>
 
                 <!-- Productos -->
-
                 <article class="card">
 
                     <div class="titulo-card">
-
                         <h2>Productos Más Vendidos</h2>
-
                     </div>
 
                     <ul class="productos">
 
                         <li>
-
                             <span>🥇 Pejibaye Grande</span>
-
                             <strong>425 ventas</strong>
 
                         </li>
 
                         <li>
-
                             <span>🥈 Pejibaye Pequeño</span>
-
                             <strong>382 ventas</strong>
-
                         </li>
 
                         <li>
-
                             <span>🥉 Harina de Pejibaye</span>
-
                             <strong>201 ventas</strong>
-
                         </li>
 
                         <li>
-
                             <span>🌴 Pejibaye Cocido</span>
-
                             <strong>148 ventas</strong>
-
                         </li>
 
                     </ul>
@@ -286,185 +178,6 @@
                 </article>
 
             </section>
-
-            <!--PANEL INFERIOR-->
-
-            <section class="panel-inferior">
-
-                <!-- Actividad -->
-
-                <article class="card">
-
-                    <div class="titulo-card">
-
-                        <h2>Actividad Reciente</h2>
-
-                    </div>
-
-                    <div class="actividad">
-
-                        <div class="item">
-
-                            <i class="fa-solid fa-user-plus"></i>
-
-                            <div>
-
-                                <h4>Nuevo cliente registrado</h4>
-
-                                <p>Hace 10 minutos</p>
-
-                            </div>
-
-                        </div>
-
-                        <div class="item">
-
-                            <i class="fa-solid fa-building"></i>
-
-                            <div>
-
-                                <h4>Nueva empresa registrada</h4>
-
-                                <p>Hace 25 minutos</p>
-
-                            </div>
-
-                        </div>
-
-                        <div class="item">
-
-                            <i class="fa-solid fa-cart-shopping"></i>
-
-                            <div>
-
-                                <h4>Pedido mayorista recibido</h4>
-
-                                <p>Hace 1 hora</p>
-
-                            </div>
-
-                        </div>
-
-                        <div class="item">
-
-                            <i class="fa-solid fa-star"></i>
-
-                            <div>
-
-                                <h4>Nueva reseña publicada</h4>
-
-                                <p>Hace 3 horas</p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-                <!-- Notificaciones -->
-
-                <article class="card">
-
-                    <div class="titulo-card">
-
-                        <h2>Notificaciones</h2>
-
-                    </div>
-
-                    <div class="notificacion">
-
-                        <span class="alerta naranja"></span>
-
-                        <div>
-
-                            <h4>3 pedidos pendientes</h4>
-
-                            <p>Requieren aprobación.</p>
-
-                        </div>
-
-                    </div>
-
-                    <div class="notificacion">
-
-                        <span class="alerta verde"></span>
-
-                        <div>
-
-                            <h4>Pago recibido</h4>
-
-                            <p>Distribuidora Central.</p>
-
-                        </div>
-
-                    </div>
-
-                    <div class="notificacion">
-
-                        <span class="alerta roja"></span>
-
-                        <div>
-
-                            <h4>Stock bajo</h4>
-
-                            <p>Pejibaye Grande.</p>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-                <!-- Acciones -->
-
-                <article class="card">
-
-                    <div class="titulo-card">
-
-                        <h2>Acciones Rápidas</h2>
-
-                    </div>
-
-                    <div class="acciones-rapidas">
-
-                        <button class="accion">
-
-                            <i class="fa-solid fa-box"></i>
-
-                            Agregar Producto
-
-                        </button>
-
-                        <button class="accion">
-
-                            <i class="fa-solid fa-users"></i>
-
-                            Nuevo Cliente
-
-                        </button>
-
-                        <button class="accion">
-
-                            <i class="fa-solid fa-file"></i>
-
-                            Generar Reporte
-
-                        </button>
-
-                        <button class="accion">
-
-                            <i class="fa-solid fa-gear"></i>
-
-                            Configuración
-
-                        </button>
-
-                    </div>
-
-                </article>
-
-            </section>
-
         </main>
+</body>
+</html>
