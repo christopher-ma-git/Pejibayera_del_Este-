@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pejibayera del Este - Empresa</title>
+
+    <link rel="stylesheet" href="estilo.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+    <!--ENCABEZADO-->
+
+    <header class="topbar">
+
+        <div class="logo">
+            <i class="fa-solid fa-seedling"></i>
+            <span>Pejibayera del Este</span>
+        </div>
+
+        <nav>
+            
+            <a href="#" class="active">Inicio</a>
+            <a href="#">Contacto</a>
+            <a href="#">Temporadas</a>
+        </nav>
+
+        <div class="user-info">
+
+            <i class=""></i>
+
+            <button>
+                Distribuidora La Central
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- CONTENIDO-->
+
+    <main>
+
+        <!-- Bienvenida -->
+
+        <section class="hero-section">
+
+            <div class="hero-text">
+
+                <h1>Bienvenido, Empresa</h1>
+
+                <p>
+                    Administre sus pedidos mayoristas de manera rápida y sencilla.
+                    Desde este panel podrá solicitar productos, revisar pedidos
+                    realizados y comunicarse directamente con la Pejibayera del Este.
+                </p>
+
+                <button type="button">
+                    Realizar nuevo pedido
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- Tarjetas -->
+
+        <section class="cards-section">
+
+            <div class="cards">
+
+                <!--TARJETA =-->
+
+                <article class="card pedido">
+
+                    <h2>
+                        <i class="fa-solid fa-cart-plus"></i>
+                        Nuevo Pedido Mayorista
+                    </h2>
+
+                    <form>
+
+                        <div class="campo">
+
+                            <label for="producto">
+                                Producto
+                            </label>
+
+                            <select id="producto">
+
+                                <option>
+                                    Seleccione un producto
+                                </option>
+
+                                <option>
+                                    Pejibaye Grande
+                                </option>
+
+                                <option>
+                                    Pejibaye Pequeño
+                                </option>
+
+                                <option>
+                                    Harina de Pejibaye
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="campo">
+
+                            <label for="cantidad">
+                                Cantidad de cajas
+                            </label>
+
+                            <input
+                                type="number"
+                                id="cantidad"
+                                placeholder="Ejemplo: 50">
+
+                        </div>
+
+                        <div class="campo">
+
+                            <label for="fecha">
+                                Fecha de entrega
+                            </label>
+
+                            <input
+                                type="date"
+                                id="fecha">
+
+                        </div>
+
+                        <div class="campo">
+
+                            <label for="comentario">
+                                Observaciones
+                            </label>
+
+                            <textarea
+                                id="comentario"
+                                rows="4"
+                                placeholder="Escriba alguna observación..."></textarea>
+
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="btn-principal">
+
+                            Solicitar Pedido
+
+                        </button>
+
+                    </form>
+
+                </article>
+
+                <!--TARJETA 2-->
+
+                <article class="card pedidos">
+
+                    <h2>
+
+                        <i class="fa-solid fa-box"></i>
+
+                        Pedidos Actuales
+
+                    </h2>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Pedido</th>
+
+                                <th>Producto</th>
+
+                                <th>Cantidad</th>
+
+                                <th>Estado</th>
+
+                                <th>Entrega</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>#001</td>
+
+                                <td>Pejibaye Grande</td>
+
+                                <td>40 cajas</td>
+
+                                <td>
+                                    <span class="estado confirmado">
+                                        En proceso
+                                    </span>
+                                </td>
+
+                                <td>20/07/2026</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>#002</td>
+
+                                <td>Pejibaye Pequeño</td>
+
+                                <td>25 cajas</td>
+
+                                <td>
+                                    <span class="estado proceso">
+                                        Terminado
+
+                                    </span>
+                                </td>
+
+                                <td>24/07/2026</td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>#003</td>
+
+                                <td>Harina de Pejibaye</td>
+
+                                <td>10 cajas</td>
+
+                                <td>
+                                    <span class="estado pendiente">
+                                        En proceso
+                                    </span>
+                                </td>
+
+                                <td>30/07/2026</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </article>
+
+                <!--TARJETA 3-->
+
+                <article class="card contacto">
+
+                    <h2>
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        Contactar al Propietario
+
+                    </h2>
+
+                    <p>
+
+                        Si necesita información adicional o desea realizar
+                        una solicitud especial, puede comunicarse mediante
+                        los siguientes medios.
+
+                    </p>
+
+                    <div class="info-contacto">
+
+                        <p>
+
+                            <i class="fa-solid fa-phone"></i>
+
+                            <strong>Teléfono:</strong>
+
+                            +506 8888-8888
+
+                        </p>
+
+                        <p>
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            <strong>Correo:</strong>
+
+                            ventas@pejibayera.cr
+
+                        </p>
+
+                        <p>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <strong>Ubicación:</strong>
+
+                            Turrialba, Cartago
+
+                        </p>
+
+                    </div>
+
+                    <button class="btn-whatsapp">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        Enviar mensaje
+
+                    </button>
+
+                </article>
+
+                <!--TARJETA 4-->
+
+                <article class="card informacion">
+
+                    <h2>
+
+                        <i class="fa-solid fa-circle-info"></i>
+
+                        Información Comercial
+
+                    </h2>
+
+                    <div class="info-comercial">
+
+                        <div class="dato">
+
+                            <h3>
+                                Pedido mínimo
+                            </h3>
+
+                            <p>
+                                10 cajas por pedido.
+                            </p>
+
+                        </div>
+
+                        <div class="dato">
+
+                            <h3>
+                                Horario de atención
+                            </h3>
+
+                            <p>
+                                Lunes a Viernes
+                                <br>
+                                7:00 a.m. - 5:00 p.m.
+                            </p>
+
+                        </div>
+
+                        <div class="dato">
+
+                            <h3>
+                                Zona de entrega
+                            </h3>
+
+                            <p>
+                                Cartago, San José,
+                                Heredia y Alajuela.
+                            </p>
+
+                        </div>
+
+                        <div class="dato">
+
+                            <h3>
+                                Formas de pago
+                            </h3>
+
+                            <p>
+                                SINPE Móvil,
+                                Transferencia Bancaria
+                                y Efectivo.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!--PIE DE PÁGINA-->
+
+    <footer class="pag-foot">
+
+    <div class="info-empresa">
+
+        <h3>
+            <i class="fa-solid fa-seedling"></i>
+            Pejibayera del Este
+        </h3>
+
+        <p>
+            Somos una empresa costarricense dedicada a la producción y
+            distribución de pejibayes frescos y productos derivados,
+            ofreciendo calidad y compromiso a nuestros clientes.
+        </p>
+
+    </div>
+
+    <div class="redes-empresa">
+
+        <h3>Redes Sociales</h3>
+
+        <div class="sociales-container">
+
+            <div class="social-item">
+                <i class="fa-brands fa-facebook-f"></i>
+                <span>Pejibayera del Este</span>
+            </div>
+
+            <div class="social-item">
+                <i class="fa-brands fa-instagram"></i>
+                <span>@PejibayeraDelEste</span>
+            </div>
+
+            <div class="social-item">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>+506 8888-8888</span>
+            </div>
+
+            <div class="social-item">
+                <i class="fa-brands fa-x-twitter"></i>
+                <span>@PejibayeraCR</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="links-empresa">
+
+        <h3>Enlaces Rápidos</h3>
+
+        <ul>
+
+            <li><a href="#">Inicio</a></li>
+
+            <li><a href="#">Pedidos Mayoristas</a></li>
+
+            <li><a href="#">Contacto</a></li>
+
+            <li><a href="#">Temporadas</a></li>
+
+        </ul>
+
+    </div>
+
+    <div class="atencion-empresa">
+
+        <h3>Atención al Cliente</h3>
+
+        <ul>
+
+            <li>Preguntas Frecuentes</li>
+
+            <li>Políticas de Entrega</li>
+
+            <li>Métodos de Pago</li>
+
+            <li>Términos y Condiciones</li>
+
+        </ul>
+
+    </div>
+
+    <div class="contacto-empresa">
+
+        <h3>Contacto</h3>
+
+        <div class="contacto-item">
+
+            <i class="fa-solid fa-phone"></i>
+
+            <span>+506 2234-5678</span>
+
+        </div>
+
+        <div class="contacto-item">
+
+            <i class="fa-solid fa-envelope"></i>
+
+            <span>info@pejibayeradeleste.com</span>
+
+        </div>
+
+        <div class="contacto-item">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            <span>Turrialba, Cartago, Costa Rica</span>
+
+        </div>
+
+    </div>
+
+</footer>
