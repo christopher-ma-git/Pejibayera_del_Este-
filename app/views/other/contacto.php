@@ -1,0 +1,137 @@
+<?php require_once '../app/views/layouts/header.php'; ?>
+
+    <main class="pag-info">
+
+        <div class="info">
+            <div class="logo-info">
+                <div>
+                    <i class="fa-solid fa-seedling"></i>
+                </div>
+                <h2>Pejibayera del Este</h2>
+            </div>
+
+            <div class="proposito">
+                <h3>Propósito</h3>
+                <p>
+                    Promover la tradición costarricense del consumo de pejibaye,
+                    ofreciendo un producto fresco, nutritivo y de alta calidad que
+                    conecte a las personas con las raíces agrícolas de nuestro país.
+                    Buscamos apoyar a los productores locales, fortalecer la economía
+                    de nuestras comunidades y llevar el sabor auténtico del pejibaye a más
+                    familias costarricenses.
+                </p>
+            </div>
+
+            <div class="mision">
+                <h3>Misión</h3>
+                <p>
+                    Somos una empresa costarricense dedicada a la producción, selección
+                    y comercialización de pejibayes frescos y productos derivados, ofreciendo
+                    a nuestros clientes alimentos naturales de excelente calidad, cultivados
+                    de manera responsable y sostenible. Trabajamos con pasión para preservar
+                    una tradición gastronómica nacional mientras brindamos una experiencia de
+                    compra confiable, cercana y accesible.
+                </p>
+            </div>
+
+            <div class="vision">
+                <h3>Visión</h3>
+                <p>
+                    Ser la tienda de pejibayes líder en Costa Rica, reconocida por la calidad
+                    de nuestros productos, nuestro compromiso con los agricultores nacionales y
+                    nuestra contribución a la preservación de una de las tradiciones alimentarias
+                    más representativas del país. Aspiramos a expandir nuestra presencia a nivel
+                    nacional y convertirnos en el principal referente del pejibaye costarricense.
+                </p>
+            </div>
+
+            <div class="valores">
+                <h3>Valores</h3>
+                <ul>
+                    <li>
+                        <h4>Compromiso con la calidad</h4>
+                        Seleccionamos cuidadosamente cada pejibaye para
+                        garantizar frescura, sabor y valor nutricional.
+                    </li>
+                    <li>
+                        <h4>Honestidad</h4>
+                        Actuamos con transparencia en todas nuestras relaciones
+                        comerciales, generando confianza con clientes, proveedores y colaboradores.
+                    </li>
+                    <li>
+                        <h4>Orgullo costarricense</h4>
+                        Promovemos nuestras raíces culturales y apoyamos
+                        el desarrollo de la agricultura nacional.
+                    </li>
+                    <li>
+                        <h4>Sostenibilidad</h4>
+                        Impulsamos prácticas responsables que favorecen
+                        la protección del medio ambiente y el aprovechamiento
+                        sostenible de los recursos naturales.
+                    </li>
+                    <li>
+                        <h4>Pasión por el servicio</h4>
+                        Brindamos atención personalizada y cercana para
+                        satisfacer las necesidades de nuestros clientes.
+                    </li>
+                    <li>
+                        <h4>Apoyo al productor local</h4>
+                        Trabajamos de la mano con agricultores costarricenses
+                        para fortalecer las economías rurales y fomentar el comercio justo.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="quienes-somos">
+                <h3>¿Quiénes somos?</h3>
+                <p>
+                    Somos una empresa familiar costarricense especializada en la venta de pejibayes
+                    frescos de la más alta calidad. Nacimos con el objetivo de rescatar y promover
+                    uno de los alimentos más tradicionales y apreciados de Costa Rica,
+                    conectando directamente a los consumidores con los productores
+                    de nuestras regiones agrícolas.
+                    Nuestro compromiso es ofrecer pejibayes cuidadosamente seleccionados,
+                    cultivados bajo estándares de calidad y recolectados en su punto óptimo
+                    para garantizar una experiencia auténtica y deliciosa. A través de nuestra
+                    tienda física y plataforma digital, buscamos acercar este producto emblemático
+                    a personas de todo el país.
+                    Creemos que cada pejibaye cuenta una historia de trabajo, tradición y orgullo nacional.
+                    Por eso, nos esforzamos diariamente por brindar productos frescos,
+                    un servicio excepcional y una experiencia que represente
+                    lo mejor de la agricultura costarricense.
+                </p>
+            </div>
+
+            <div class="certificaciones">
+                <h3>Certificaciones</h3>
+                <ul>
+                    <li>Permiso Sanitario de Funcionamiento (Decreti Ejecutivo Nº 43432-S)</li>
+                    <li>Certificación de Buenas Prácticas de Manufactura (BPM) conforme al RTCA 67.01.33:06</li>
+                    <li>Registro Sanitario de Productos Alimenticios según RTCA 67.01.31:20</li>
+                    <li>Personal certificado en Manipulación de Alimentos</li>
+                </ul>
+            </div>
+
+            <div class="medios-contacto">
+                <h3>Medios de Contacto</h3>
+
+                <div class="contacto-item-md">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+506 2234-5678</span>
+                </div>
+
+                <div class="contacto-item-md">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>info@pejibayeradeleste.com</span>
+                </div>
+
+                <div class="contacto-item-md">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Turrialba, Cartago, Costa Rica</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+<?php require_once '../app/views/layouts/footer.php'; ?>
