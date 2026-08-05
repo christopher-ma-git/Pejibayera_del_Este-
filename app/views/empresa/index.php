@@ -1,244 +1,305 @@
 <?php require_once '../app/views/layouts/header.php'; ?>
 
-<!-- CONTENIDO-->
 <main>
+
     <!-- Bienvenida -->
     <section class="hero-section">
+
         <div class="hero-text">
-            <h1>Bienvenido, Empresa</h1>
+
+            <h1>
+                Bienvenido, Empresa
+            </h1>
+
             <p>
                 Administre sus pedidos mayoristas de manera rápida y sencilla.
                 Desde este panel podrá solicitar productos, revisar pedidos
                 realizados y comunicarse directamente con la Pejibayera del Este.
             </p>
-            <button type="button">
-                <a href="<?= BASE_URL ?>/auth/logout">
-                    <i class="fa-solid fa-door-closed"></i>
-                    Cerrar Sesión
-                </a>
-            </button>
+
         </div>
+
     </section>
 
     <!-- Tarjetas -->
     <section class="cards-section">
+
         <div class="cards">
-            <!--TARJETA =-->
+
+            <!-- NUEVO PEDIDO -->
             <article class="card pedido">
+
                 <h2>
+
                     <i class="fa-solid fa-cart-plus"></i>
+
                     Nuevo Pedido Mayorista
+
                 </h2>
 
-                <form>
-                    <div class="campo">
-                        <label for="producto">
-                            Producto
-                        </label>
+                <form action="<?= BASE_URL ?>/empresa/crearPedido" method="POST">
 
-                        <select id="producto">
-                            <option>
+                    <div class="campo">
+
+                        <label for="idProducto">Producto</label>
+
+                        <select
+                            name="idProducto"
+                            id="idProducto"
+                            required>
+
+                            <option value="">
                                 Seleccione un producto
                             </option>
-                            <option>
-                                Pejibaye Grande
-                            </option>
-                            <option>
-                                Pejibaye Pequeño
-                            </option>
-                            <option>
-                                Harina de Pejibaye
-                            </option>
+
+                            <?php foreach ($data['productos'] as $producto): ?>
+
+                                <option value="<?= $producto['idProducto']; ?>">
+
+                                    <?= htmlspecialchars($producto['nombreProducto']); ?>
+
+                                </option>
+
+                            <?php endforeach; ?>
+
                         </select>
+
                     </div>
 
                     <div class="campo">
+
                         <label for="cantidad">
+
                             Cantidad de cajas
+
                         </label>
-                        <input type="number" id="cantidad" placeholder="Ejemplo: 50">
+
+                        <input
+                            type="number"
+                            id="cantidad"
+                            name="cantidad"
+                            min="1"
+                            required>
+
                     </div>
 
                     <div class="campo">
-                        <label for="fecha">
+
+                        <label for="fechaEntrega">
+
                             Fecha de entrega
+
                         </label>
-                        <input type="date" id="fecha">
+
+                        <input
+                            type="date"
+                            id="fechaEntrega"
+                            name="fechaEntrega"
+                            required>
+
                     </div>
 
                     <div class="campo">
+
                         <label for="comentario">
+
                             Observaciones
+
                         </label>
-                        <textarea id="comentario" rows="4" placeholder="Escriba alguna observación..."></textarea>
+
+                        <textarea
+                            id="comentario"
+                            name="comentario"
+                            rows="4"
+                            placeholder="Escriba alguna observación..."></textarea>
+
                     </div>
 
-                    <button type="submit" class="btn-principal">
+                    <button
+                        type="submit"
+                        class="btn-principal">
+
                         Solicitar Pedido
+
                     </button>
+
                 </form>
+
             </article>
 
-            <!--TARJETA 2-->
+            <!-- MIS PEDIDOS -->
             <article class="card pedidos">
+
                 <h2>
+
                     <i class="fa-solid fa-box"></i>
-                    Pedidos Actuales
+
+                    Mis Pedidos
+
                 </h2>
 
                 <table>
+
                     <thead>
+
                         <tr>
-                            <th>Pedido</th>
-                            <th>Producto</th>
-                            <th>Cantidad</th>
+
+                            <th>ID</th>
+
+                            <th>Total</th>
+
                             <th>Estado</th>
+
+                            <th>Fecha Pedido</th>
+
                             <th>Entrega</th>
+
                         </tr>
+
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>#001</td>
-                            <td>Pejibaye Grande</td>
-                            <td>40 cajas</td>
 
-                            <td>
-                                <span class="estado confirmado">
-                                    En proceso
-                                </span>
-                            </td>
+                        <?php if (!empty($data['pedidos'])): ?>
 
-                            <td>20/07/2026</td>
-                        </tr>
+                            <?php foreach ($data['pedidos'] as $pedido): ?>
 
-                        <tr>
-                            <td>#002</td>
-                            <td>Pejibaye Pequeño</td>
-                            <td>25 cajas</td>
+                                <tr>
 
-                            <td>
-                                <span class="estado proceso">
-                                    Terminado
-                                </span>
-                            </td>
+                                    <td>
 
-                            <td>24/07/2026</td>
-                        </tr>
+                                        <?= $pedido['idPedido']; ?>
 
-                        <tr>
-                            <td>#003</td>
-                            <td>Harina de Pejibaye</td>
-                            <td>10 cajas</td>
+                                    </td>
 
-                            <td>
-                                <span class="estado pendiente">
-                                    En proceso
-                                </span>
-                            </td>
+                                    <td>
 
-                            <td>30/07/2026</td>
-                        </tr>
+                                        ₡<?= number_format($pedido['pedidoTotal'], 2); ?>
+
+                                    </td>
+
+                                    <td>
+
+                                        <?= htmlspecialchars($pedido['estadoPedido']); ?>
+
+                                    </td>
+
+                                    <td>
+
+                                        <?= $pedido['fechaPedido']; ?>
+
+                                    </td>
+
+                                    <td>
+
+                                        <?= $pedido['fechaEntrega']; ?>
+
+                                    </td>
+
+                                </tr>
+
+                            <?php endforeach; ?>
+
+                        <?php else: ?>
+
+                            <tr>
+
+                                <td colspan="5">
+
+                                    No hay pedidos registrados.
+
+                                </td>
+
+                            </tr>
+
+                        <?php endif; ?>
+
                     </tbody>
+
                 </table>
+
             </article>
 
-            <!--TARJETA 3-->
-            <article class="card contacto">
+            <!-- INFORMACIÓN -->
+            <article class="card informacion">
+
                 <h2>
-                    <i class="fa-solid fa-phone"></i>
-                    Contactar al Propietario
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    Información Comercial
+
                 </h2>
 
                 <p>
-                    Si necesita información adicional o desea realizar
-                    una solicitud especial, puede comunicarse mediante
-                    los siguientes medios.
+
+                    <strong>Pedido mínimo:</strong>
+                    10 cajas.
+
                 </p>
 
-                <div class="info-contacto">
-                    <p>
-                        <i class="fa-solid fa-phone"></i>
-                        <strong>Teléfono:</strong>
-                        +506 8888-8888
-                    </p>
+                <p>
 
-                    <p>
-                        <i class="fa-solid fa-envelope"></i>
-                        <strong>Correo:</strong>
-                        ventas@pejibayera.cr
-                    </p>
+                    <strong>Horario:</strong>
+                    Lunes a Viernes
+                    7:00 a.m. - 5:00 p.m.
 
-                    <p>
-                        <i class="fa-solid fa-location-dot"></i>
-                        <strong>Ubicación:</strong>
-                        Turrialba, Cartago
-                    </p>
-                </div>
+                </p>
 
-                <button class="btn-whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    Enviar mensaje
-                </button>
+                <p>
+
+                    <strong>Formas de pago:</strong>
+                    SINPE Móvil,
+                    Transferencia Bancaria
+                    y Efectivo.
+
+                </p>
+
             </article>
 
-            <!--TARJETA 4-->
-            <article class="card informacion">
+            <!-- CONTACTO -->
+            <article class="card contacto">
+
                 <h2>
-                    <i class="fa-solid fa-circle-info"></i>
-                    Información Comercial
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    Contacto
+
                 </h2>
 
-                <div class="info-comercial">
-                    <div class="dato">
-                        <h3>
-                            Pedido mínimo
-                        </h3>
+                <p>
 
-                        <p>
-                            10 cajas por pedido.
-                        </p>
-                    </div>
+                    <strong>Teléfono:</strong>
 
-                    <div class="dato">
-                        <h3>
-                            Horario de atención
-                        </h3>
+                    +506 8888-8888
 
-                        <p>
-                            Lunes a Viernes
-                            <br>
-                            7:00 a.m. - 5:00 p.m.
-                        </p>
-                    </div>
+                </p>
 
-                    <div class="dato">
-                        <h3>
-                            Zona de entrega
-                        </h3>
-                        
-                        <p>
-                            Cartago, San José,
-                            Heredia y Alajuela.
-                        </p>
-                    </div>
+                <p>
 
-                    <div class="dato">
-                        <h3>
-                            Formas de pago
-                        </h3>
+                    <strong>Correo:</strong>
 
-                        <p>
-                            SINPE Móvil,
-                            Transferencia Bancaria
-                            y Efectivo.
-                        </p>
-                    </div>
+                    ventas@pejibayera.cr
 
-                </div>
+                </p>
+
+                <button
+                    type="button"
+                    class="btn-principal">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                    Contactar
+
+                </button>
+
             </article>
+
         </div>
+
     </section>
+
 </main>
 
 <?php require_once '../app/views/layouts/footer.php'; ?>

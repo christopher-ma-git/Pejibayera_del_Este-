@@ -157,14 +157,32 @@ CREATE TABLE IF NOT EXISTS Descuento (
 -- Implementada (De aqui sale el historial)
 CREATE TABLE IF NOT EXISTS Pedido (
     idPedido INT AUTO_INCREMENT PRIMARY KEY,
+
     fechaPedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    estadoPedido ENUM('Pendiente','En preparación','Enviado','Entregado','Cancelado') NOT NULL DEFAULT 'Pendiente',
-    tipoPedido ENUM('Individual', 'Empresa') NOT NULL,
-    pedidoTotal DECIMAL(10, 2) NOT NULL,
+
+    fechaEntrega DATE NOT NULL,
+
+     
+
+    estadoPedido ENUM(
+        'Pendiente',
+        'En preparación',
+        'Enviado',
+        'Entregado',
+        'Cancelado'
+    ) NOT NULL DEFAULT 'Pendiente',
+
+    tipoPedido ENUM('Individual','Empresa') NOT NULL,
+
+    pedidoTotal DECIMAL(10,2) NOT NULL,
+
+    observaciones VARCHAR(255),
+
     idUsuario INT NOT NULL,
+
     CONSTRAINT fk_pedido_usuario
         FOREIGN KEY (idUsuario)
-        REFERENCES Usuario(idUsuario)
+        REFERENCES users(id)
         ON UPDATE CASCADE
         ON DELETE RESTRICT
 );
@@ -202,6 +220,7 @@ CREATE TABLE IF NOT EXISTS DetallePedido (
         REFERENCES Pedido(idPedido)
         ON UPDATE CASCADE
         ON DELETE CASCADE,
+
     CONSTRAINT fk_detallepedido_producto
         FOREIGN KEY (idProducto)
         REFERENCES Producto(idProducto)
@@ -249,4 +268,13 @@ INSERT INTO Producto (nombreProducto, descripcion, precio, cantidadStock, ventaE
 SELECT * FROM users;
 
 SELECT * FROM Categoria;
+
 SELECT * FROM Presentacion;
+
+SELECT * FROM Producto;
+
+SELECT * FROM Empresa;
+
+SELECT * FROM Pedido;
+
+SELECT * FROM DetallePedido;
