@@ -33,46 +33,35 @@
             La tabla debe tener: columnas (direccion,fechaDePedido,cantidad de productos,precioFinal) y filas(entregados, en curso y cancelados)
             Se debe cambiar el HTML!!!!
         -->
-        <section class="historial-pedidos">
-            <h2>Historial de Pedidos</h2>
+       <section class="historial-pedidos">
+    <h2>Historial de Pedidos</h2>
 
-            <?php if (empty($data['pedidos'])): ?>
-                <p>No existen pedidos registrados.</p>
-            <?php else: ?>
-                <table class="tabla-pedidos">
-                    <thead>
-                        <tr>
-                            <th>Fecha</th>
-                            <th>Tipo</th>
-                            <th>Estado</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
+    <?php if (empty($data['pedidos'])): ?>
+        <p>No existen pedidos registrados.</p>
+    <?php else: ?>
+        <table class="tabla-pedidos">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Tipo</th>
+                    <th>Estado</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
 
-                    <tbody>
-                        <?php foreach ($data['pedidos'] as $pedido): ?>
-                            <tr>
-                                <td>
-                                    <?= $pedido['fechaPedido'] ?>
-                                </td>
-
-                                <td>
-                                    <?= $pedido['tipoPedido'] ?>
-                                </td>
-
-                                <td>
-                                    <?= $pedido['estadoPedido'] ?>
-                                </td>
-
-                                <td>
-                                    ₡<?= number_format($pedido['totalPedido'], 2) ?>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-
-            <?php endif; ?>
+            <tbody>
+                <?php foreach ($data['pedidos'] as $pedido): ?>
+                    <tr>
+                        <td><?= $pedido['fechaPedido'] ?></td>
+                        <td><?= $pedido['tipoPedido'] ?></td>
+                        <td><?= $pedido['estadoPedido'] ?></td>
+                        <td>₡<?= number_format($pedido['totalPedido'], 2) ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php endif; ?>
+</section>
         </section>
     </main>
 

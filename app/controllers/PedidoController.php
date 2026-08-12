@@ -32,21 +32,20 @@ class PedidoController extends Controller {
             $this->redirect('/carrito/comprar');
         }
 
-        $carrito = $this->carritoModel->getCarritoActivo(
-            $_SESSION['user_id']
-        );
+        if (!$this->validarTarjeta($_POST)) {
+            $this->redirect('/carrito/comprar');
+        }
 
+        $carrito = $this->carritoModel->getCarritoActivo($_SESSION['user_id']);
         if (!$carrito) {
             $this->redirect('/carrito/index');
         }
 
-        $productos = $this->carritoModel->obtenerProductos(
-            $carrito['idUsuario']
-        );
-
+        $productos = $this->carritoModel->obtenerProductos($carrito['idUsuario']);
         if (empty($productos)) {
             $this->redirect('/carrito/index');
         }
+
 
         /*
          * Validar stock antes de realizar la compra.
@@ -57,7 +56,7 @@ class PedidoController extends Controller {
                 $this->redirect('/carrito/index');
             }
 
-            if ($_SESSION['user_role'] == 'Cliente' && $producto['ventaEmpresarial']) { //esta línea da error 66
+            if ($_SESSION['user_role'] == 'Cliente' && $producto['ventaEmpresarial']) {
                 $_SESSION['error'] = "El producto {$producto['nombreProducto']} es exclusivo para empresas.";
                 $this->redirect('/carrito/index');
             }
@@ -75,7 +74,9 @@ class PedidoController extends Controller {
 
         $idPedido = $this->pedidoModel->create([
             'idUsuario' => $_SESSION['user_id'],
-            'tipoPedido' => $tipoPedido
+            'tipoPedido' => $tipoPedido,
+            'fechaEntrega' => $carrito['fechaEntrega'],
+            'observaciones' => $carrito['observaciones']
         ]);
 
 
@@ -150,4 +151,30 @@ class PedidoController extends Controller {
             'detalle' => $detalle
         ]);
     }
+
+    private function validarTarjeta($data) { 
+        if (empty($data['numeroTarjeta']) || empty($data['fechaVencimiento']) || empty($data['pin'])) {
+            $_SESSION['error'] = "Todos los datos de la tarjeta son obligatorios.";
+            return false;
+        }
+
+        if (!ctype_digit($data['numeroTarjeta']) || strlen($data['numeroTarjeta']) != 16) {
+            $_SESSION['error'] = "El número de tarjeta debe contener exactamente 16 dígitos.";
+            return false;
+        }
+
+        if (!ctype_digit($data['pin']) || strlen($data['pin']) != 4) {
+            $_SESSION['error'] = "El PIN debe contener exactamente 4 dígitos.";
+            return false;
+        }
+
+        if (strtotime($data['fechaVencimiento']) < strtotime(date('Y-m-d'))) {
+            $_SESSION['error'] = "La tarjeta se encuentra vencida.";
+            return false;
+        }
+        return true;
+    }
+
+
 }
+

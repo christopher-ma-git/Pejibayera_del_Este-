@@ -1,10 +1,9 @@
 <?php require_once '../app/views/layouts/header.php'; ?>
 
-<!-- <?php
-echo password_hash("aquiVaSuContraseña", PASSWORD_DEFAULT); ?> 
-Esto devuelve en pantalla "aquiVaSuContraseña" en formato hash
-se ocupa para inicializar un admin, solo para usuarios insertados desde BD
--->
+<!-- <?php echo password_hash("jose", PASSWORD_DEFAULT); ?>  -->
+<!-- Esto devuelve en pantalla "aquiVaSuContraseña" en formato hash
+se ocupa para inicializar un admin, solo para usuarios insertados desde BD -->
+
 
 <div class="login-body">
     <div class="login-container">

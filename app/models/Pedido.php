@@ -36,23 +36,16 @@ class Pedido {
      * @return int
      */
     
-    public function create($data) { //esta linea da error 38
+    public function create($data) {
         $sql = "INSERT INTO Pedido
-                (
-                    fechaPedido,
-                    tipoPedido,
-                    idUsuario
-                )
-                VALUES
-                (
-                    CURDATE(),
-                    ?,
-                    ?
-                )";
+                    (fechaPedido, fechaEntrega, observaciones, tipoPedido, idUsuario)
+                VALUES(CURDATE(), ?, ?, ?, ?)";
 
         $stmt = $this->ejecutarConsulta(
             $sql,
-            "si",
+            "sssi",
+            $data['fechaEntrega'],
+            $data['observaciones'],
             $data['tipoPedido'],
             $data['idUsuario']
         );
@@ -92,6 +85,8 @@ class Pedido {
         $sql = "SELECT
                     p.idPedido,
                     p.fechaPedido,
+                    p.fechaEntrega,
+                    p.observaciones,
                     p.estadoPedido,
                     p.tipoPedido,
                     COALESCE(SUM(dp.subtotal), 0) AS totalPedido
@@ -102,10 +97,13 @@ class Pedido {
                 GROUP BY
                     p.idPedido,
                     p.fechaPedido,
+                    p.fechaEntrega,
+                    p.observaciones,
                     p.estadoPedido,
                     p.tipoPedido
                 ORDER BY
                     p.fechaPedido DESC,
+                    p.fechaEntrega DESC,
                     p.idPedido DESC";
 
         $stmt = $this->ejecutarConsulta(
@@ -188,6 +186,191 @@ class Pedido {
         $correcto = $stmt->affected_rows > 0;
         $stmt->close();
         return $correcto;
+    }
+
+    /**
+     * Calcula el porcentaje de crecimiento.
+     *
+     * @param int|float $valorInicial
+     * @param int|float $valorFinal
+     * @return float
+     */
+    private function calcularCrecimiento($valorInicial, $valorFinal) {
+        if ($valorInicial <= 0) {
+            return ($valorFinal > 0) ? 100.00 : 0.00;
+        }
+
+        return round((($valorFinal - $valorInicial) / $valorInicial) * 100, 2);
+    }
+
+    /**
+     * Obtiene la cantidad de pedidos activos y su crecimiento mensual.
+     *
+     * @return array
+     */
+    public function getContarPedidos() {
+        $sql = "SELECT COUNT(*) AS total FROM Pedido WHERE estadoPedido IN ('Pendiente', 'En preparación')";
+        $stmt = $this->ejecutarConsulta($sql);
+        $resultado = $stmt->get_result();
+        $totalActual = $resultado->fetch_assoc()['total'];
+        $stmt->close();
+
+        $sql = "SELECT COUNT(*) AS nuevos
+                FROM Pedido
+                WHERE estadoPedido IN ('Pendiente', 'En preparación')
+                AND MONTH(fechaPedido) = MONTH(CURDATE())
+                AND YEAR(fechaPedido) = YEAR(CURDATE())";
+
+        $stmt = $this->ejecutarConsulta($sql);
+        $resultado = $stmt->get_result();
+        $nuevos = $resultado->fetch_assoc()['nuevos'];
+        $stmt->close();
+
+        $valorInicial = $totalActual - $nuevos;
+        return ['total' => $totalActual, 'crecimiento' => $this->calcularCrecimiento($valorInicial, $totalActual)];
+    }
+
+    /**
+     * Obtiene el total vendido y el crecimiento mensual.
+     *
+     * @return array
+     */
+    public function getContarVentas() {
+        $sql = "SELECT COALESCE(SUM(dp.subtotal),0) AS total
+                FROM Pedido p
+                INNER JOIN DetallePedido dp
+                    ON p.idPedido = dp.idPedido";
+
+        $stmt = $this->ejecutarConsulta($sql);
+        $resultado = $stmt->get_result();
+        $totalActual = $resultado->fetch_assoc()['total'];
+        $stmt->close();
+
+        $sql = "SELECT COALESCE(SUM(dp.subtotal),0) AS nuevos
+                FROM Pedido p
+                INNER JOIN DetallePedido dp
+                    ON p.idPedido = dp.idPedido
+                WHERE MONTH(p.fechaPedido) = MONTH(CURDATE())
+                AND YEAR(p.fechaPedido) = YEAR(CURDATE())";
+
+        $stmt = $this->ejecutarConsulta($sql);
+        $resultado = $stmt->get_result();
+        $ventasMes = $resultado->fetch_assoc()['nuevos'];
+        $stmt->close();
+
+        $valorInicial = $totalActual - $ventasMes;
+        return ['total' => $totalActual, 'crecimiento' => $this->calcularCrecimiento($valorInicial, $totalActual)];
+    }
+
+    /**
+     * Obtiene los cuatro productos más vendidos.
+     *
+     * @return array
+     */
+    public function getContarPedidosProducto() {
+        $sql = "SELECT
+                    p.nombreProducto,
+                    SUM(dp.cantidad) AS totalVentas
+                FROM DetallePedido dp
+                INNER JOIN Producto p
+                    ON dp.idProducto = p.idProducto
+                GROUP BY
+                    p.idProducto,
+                    p.nombreProducto
+                ORDER BY totalVentas DESC
+                LIMIT 4";
+
+        $stmt = $this->ejecutarConsulta($sql);
+        $resultado = $stmt->get_result();
+
+        $productos = [];
+        while ($fila = $resultado->fetch_assoc()) {
+            $productos[] = $fila;
+        }
+
+        $stmt->close();
+        return $productos;
+    }
+
+    /**
+     * Obtiene todos los pedidos realizados por clientes.
+     *
+     * @return array
+     */
+    public function getPedidosCliente() {
+        $sql = "SELECT
+                    p.idPedido,
+                    u.nombre,
+                    p.fechaPedido,
+                    p.estadoPedido,
+                    pr.nombreProducto,
+                    dp.cantidad,
+                    dp.precioUnitario,
+                    dp.subtotal
+                FROM Pedido p
+                INNER JOIN users u
+                    ON p.idUsuario = u.id
+                INNER JOIN DetallePedido dp
+                    ON p.idPedido = dp.idPedido
+                INNER JOIN Producto pr
+                    ON dp.idProducto = pr.idProducto
+                WHERE p.tipoPedido = 'Individual'
+                ORDER BY
+                    p.fechaPedido DESC,
+                    p.idPedido DESC";
+
+        $stmt = $this->ejecutarConsulta($sql);
+        $resultado = $stmt->get_result();
+        $pedidos = [];
+
+        while ($fila = $resultado->fetch_assoc()) {
+            $pedidos[] = $fila;
+        }
+
+        $stmt->close();
+        return $pedidos;
+    }
+
+    /**
+     * Obtiene todos los pedidos realizados por empresas.
+     *
+     * @return array
+     */
+    public function getPedidosEmpresa() {
+        $sql = "SELECT
+                    p.idPedido,
+                    u.nombre,
+                    p.fechaPedido,
+                    p.fechaEntrega,
+                    p.estadoPedido,
+                    pr.nombreProducto,
+                    dp.cantidad,
+                    dp.precioUnitario,
+                    dp.subtotal,
+                    p.observaciones
+                FROM Pedido p
+                INNER JOIN users u
+                    ON p.idUsuario = u.id
+                INNER JOIN DetallePedido dp
+                    ON p.idPedido = dp.idPedido
+                INNER JOIN Producto pr
+                    ON dp.idProducto = pr.idProducto
+                WHERE p.tipoPedido = 'Empresa'
+                ORDER BY
+                    p.fechaEntrega ASC,
+                    p.fechaPedido DESC,
+                    p.idPedido DESC";
+
+        $stmt = $this->ejecutarConsulta($sql);
+        $resultado = $stmt->get_result();
+        $pedidos = [];
+
+        while ($fila = $resultado->fetch_assoc()) {
+            $pedidos[] = $fila;
+        }
+
+        $stmt->close();
+        return $pedidos;
     }
 
 }

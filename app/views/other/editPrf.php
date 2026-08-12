@@ -11,9 +11,9 @@
         <h2>Actualizar Información</h2>
 
         <!-- Este botón debería de devolverse a Perfil sin hacer ningun cambio-->
-        <button type="submit">
-            <a href="<?= BASE_URL ?>/otherview/perfil" class="btn-frm-update">
-                ← Volver
+        <button type="submit" class="btn-volver">
+            <a href="<?= BASE_URL ?>/otherview/perfil">
+                <i class="fa-solid fa-left-long"></i>
             </a>
         </button>
 
@@ -62,7 +62,7 @@
 
             <div class="btn-frmUpdt-container">
                 <!-- Este botón debería Actualizar los datos del usuario -->
-                <button type="submit" class="btn-frm-update">
+                <button type="submit">
                     Actualizar Datos
                 </button>
             </div>

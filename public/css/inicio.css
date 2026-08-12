@@ -4,22 +4,22 @@
     padding: 0%;
     box-sizing: border-box;
 }
-
+ 
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f4f6f9;
     color: #333;
 }
-
+ 
 a{
     text-decoration: none;
     color: inherit;
 }
-
+ 
 ul{
     list-style: none;
 }
-
+ 
 /*===============HEADER===============*/
 .topbar{
     display: flex;
@@ -32,7 +32,7 @@ ul{
     top: 0;
     z-index: 1000;
 }
-
+ 
 .logo{
     display: flex;
     align-items: center;
@@ -41,34 +41,34 @@ ul{
     font-weight: bold;
     color: #d97706;
 }
-
+ 
 .logo i{
     font-size: 28px;
 }
-
+ 
 .actions {
     display: flex;
     gap: 20px;
     align-items: center;
     cursor: pointer;
 }
-
+ 
 #img-logo-usr {
     width: 25px;
     height: 25px;
     transition: 0.3s;
 }
-
+ 
 #img-logo-usr:hover {
     transform: translateY(-5px);
 }
-
+ 
 #img-carrito {
     width: 25px;
     height: 25px;
     transition: 0.3s;
 }
-
+ 
 #img-carrito:hover {
     transform: translateY(-5px);
 }
@@ -77,23 +77,23 @@ nav{
     display: flex;
     gap: 30px;
 }
-
+ 
 nav a{
     font-weight: 600;
     color: #555;
     transition: .3s;
 }
-
+ 
 nav a:hover{
     color: #d97706;
 }
-
+ 
 .active{
     color: #d97706;
     border-bottom: 3px solid #d97706;
     padding-bottom: 5px;
 }
-
+ 
 /*===============FOOTER*===============*/
 .pag-foot{
     background: #9a3412;
@@ -105,63 +105,63 @@ nav a:hover{
     margin-top: 60px;
     position: sticky;
 }
-
+ 
 .pag-foot h3{
     margin-bottom: 20px;
     color: #FFD580;
     font-size: 22px;
 }
-
+ 
 .pag-foot p{
     line-height: 1.7;
 }
-
+ 
 .pag-foot ul{
     list-style: none;
 }
-
+ 
 .pag-foot li{
     margin-bottom: 12px;
 }
-
+ 
 .pag-foot a{
     color: white;
     transition: .3s;
 }
-
+ 
 .pag-foot a:hover{
     color: #FFD580;
 }
-
+ 
 .sociales-container{
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-
+ 
 .social-item{
     display: flex;
     align-items: center;
     gap: 12px;
 }
-
+ 
 .social-item i{
     color: #FFD580;
     font-size: 20px;
 }
-
+ 
 .contacto-item{
     display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 15px;
 }
-
+ 
 .contacto-item i{
     color: #FFD580;
     font-size: 18px;
 }
-
+ 
 /*=============== ESTILOS MAIN ===============*/
 .hero-section {
     background: linear-gradient(135deg, #fff3e6, #fde2c8);
@@ -175,45 +175,45 @@ nav a:hover{
     justify-content: space-between;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
 }
-
+ 
 .hero-text {
     max-width: 50%;
 }
-
+ 
 .hero-text h1 {
     color: #8a3306;
     margin-bottom: 10px;
 }
-
+ 
 .hero-text p {
     color: #665243;
     margin-bottom: 20px;
 }
-
+ 
 .hero-image i {
     width: 320px;
     border-radius: 12px;
     font-size: 100px;
 }
-
+ 
 .cards-section {
     width: 90%;
     max-width: 1100px;
     margin: 30px auto;
 }
-
+ 
 .cards-section h2 {
     text-align: center;
     color: #8a3306;
     margin-bottom: 20px;
 }
-
+ 
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
 }
-
+ 
 .card {
     background-color: #ffffff;
     padding: 20px;
@@ -223,11 +223,11 @@ nav a:hover{
     border: 1px solid #f0e2d3;
     transition: 0.3s;
 }
-
+ 
 .card:hover {
     transform: translateY(-5px);
 }
-
+ 
 .card img {
     width: 100%;
     height: 160px;
@@ -235,18 +235,18 @@ nav a:hover{
     border-radius: 8px;
     margin-bottom: 15px;
 }
-
+ 
 .card h3 {
     margin-bottom: 8px;
     color: #2c3e50;
 }
-
+ 
 .card p {
     color: #666;
     font-size: 0.9rem;
     margin-bottom: 12px;
 }
-
+ 
 .card .precio {
     font-weight: bold;
     color: #d9531e;
@@ -254,7 +254,7 @@ nav a:hover{
     display: block;
     margin-bottom: 10px;
 }
-
+ 
 button, .btn {
     background-color: #d9531e;
     color: #ffffff;
@@ -267,12 +267,12 @@ button, .btn {
     text-decoration: none;
     display: inline-block;
 }
-
+ 
 button:hover, .btn:hover {
     background-color: #b33e10;
 }
-
-
+ 
+ 
 .banner-promo {
     background: linear-gradient(135deg, #e65100, #ff8f00);
     color: white;
@@ -285,46 +285,16 @@ button:hover, .btn:hover {
     justify-content: space-between;
     align-items: center;
 }
-
+ 
 .banner-promo btn-promo {
     background-color: #ffffff;
     color: #e65100;
 }
-
+ 
 .banner-promo btn-promo:hover {
     background-color: #f2f2f2;
 }
-
-.table-section {
-    width: 90%;
-    max-width: 1100px;
-    margin: 30px auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #ffffff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-th, td {
-    border: 1px solid #f0e2d3;
-    padding: 12px;
-    text-align: left;
-}
-
-th {
-    background-color: #d9531e;
-    color: white;
-}
-
-tbody tr:hover {
-    background-color: #fff8f2;
-}
-
+  
 /*---------------------- ESTILOS LOGIN ----------------------*/
 .login-body {
     min-height: 100vh;
@@ -334,7 +304,7 @@ tbody tr:hover {
     align-items: center;
     padding: 30px;
 }
-
+ 
 .login-container,
 .registro-container {
     width: 100%;
@@ -344,15 +314,15 @@ tbody tr:hover {
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
     border: 1px solid #f0e2d3;
 }
-
+ 
 .login-container {
     max-width: 450px;
 }
-
+ 
 .registro-container {
     max-width: 600px;
 }
-
+ 
 .login-container h1,
 .registro-container h1 {
     color: #d9531e;
@@ -360,31 +330,32 @@ tbody tr:hover {
     font-size: 1.8rem;
     margin-bottom: 10px;
 }
-
+ 
 .login-container h2,
 .registro-container h2 {
     color: #8a3306;
     text-align: center;
     margin-bottom: 25px;
 }
-
+ 
 .cedula-container {
     display: none;
 }
-
+ 
 form {
     width: 100%;
 }
-
+ 
 label {
     display: block;
     color: #665243;
     font-weight: bold;
     margin-bottom: 7px;
 }
-
+ 
 input,
-select {
+select,
+textarea {
     width: 100%;
     padding: 12px;
     margin-bottom: 18px;
@@ -395,29 +366,45 @@ select {
     font-size: 0.95rem;
     outline: none;
 }
-
-input,
+ 
+input,textarea,
 select:focus {
     border-color: #d9531e;
     box-shadow: 0px 0px 5px rgba(217, 83, 30, 0.3);
 }
-
+ 
 input::placeholder {
     color: #999999;
 }
-
+ 
 .btn-frmLogin-container,
-.btn-frmRgst-container {
+.btn-frmRgst-container,
+.btn-frmUpdt-container,
+.btn-salir-container,
+.btn-ResumenCarrito-container,
+.btn-frmPago-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-
+ 
 .btn-frmLogin-container button,
-.btn-frmRgst-container button {
+.btn-frmRgst-container button,
+.btn-frmUpdt-container button,
+.btn-salir-container button, 
+.btn-ResumenCarrito-container button,
+.btn-frmPago-container button {
     margin-bottom: 15px;
     width: 100%;
+}
+ 
+.btn-volver {
+    margin-bottom: 20px;
+}
+
+.btn-volver i {
+    font-size: 25px;
 }
 
 /* button {
@@ -433,258 +420,554 @@ input::placeholder {
     transition: 0.3s;
     margin: 15px 0px;
 }
-
+ 
 button a{
     color: #ffffff;
     text-decoration: none;
 } */
-
+ 
 /* button:hover {
     background-color: #b33e10;
 } */
-
+ 
 .registro-texto {
     text-align: center;
     color: #666666;
     margin-top: 22px;
 }
-
+ 
 .registro-texto a {
     color: #d9531e;
     text-decoration: none;
     font-weight: bold;
 }
-
+ 
 .registro-texto a:hover {
     color: #b33e10;
     text-decoration: underline;
 }
-
+ 
 .direccion-aviso {
     color: #666666;
     font-size: 0.85rem;
     margin-top: -10px;
     margin-bottom: 18px;
 }
-
+ 
 @media screen and (max-width: 650px) {
-
+ 
     .login-body {
         padding: 20px;
     }
-
+ 
     .login-container,
     .registro-container {
         padding: 25px 20px;
     }
-
+ 
     .login-container h1,
     .registro-container h1 {
         font-size: 1.5rem;
     }
-
+ 
     .login-container h2,
     .registro-container h2 {
         font-size: 1.3rem;
     }
-
+ 
 }
-
+ 
 /*---------------------- ESTILOS OTRAS VISTAS ----------------------*/
 /*===============ESTILOS TEMPORADA===============*/
 .temporada {
-    width: 1fr;
-    padding: 50px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 45px 70px;
     text-align: center;
-    color: #000;
+    color: #333;
 }
-
+ 
+/* TÍTULO */
+ 
 .temporada h2 {
-    color: #FF7700;
-    margin: 0px 0px 15px 0px;
+    color: #8a3306;
+    font-size: 28px;
+    margin: 0 0 6px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin-bottom: 20px;
 }
-
+ 
+.temporada > p {
+    max-width: 850px;
+    margin: 0 auto 30px;
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: center;
+}
+ 
+/* CALENDARIO */
+ 
 .calendario {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin: 20px 0px;
+    gap: 16px;
+    margin: 0 auto 25px;
 }
-
+ 
+/* MESES */
+ 
 .calendario div {
-    padding: 20px;
-    border-radius: 12px;
-    font-weight: bold;
+    padding: 22px 20px;
+    border-radius: 14px;
+    font-weight: 700;
     color: #fff;
+    font-size: 16px;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s ease;
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
-
+ 
+/* EFECTO AL PASAR EL MOUSE */
+ 
+.calendario div:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 9px 20px rgba(0, 0, 0, 0.13);
+}
+ 
+/* FUERA DE TEMPORADA */
+ 
 .mes-fuera {
-    background-color: #c0392b;
-    transition: 0.3s;
+    background: #c0392b;
 }
-
+ 
+/* TEMPORADA */
+ 
 .mes-temporada {
-    background-color: #27ae60;
-    transition: 0.3s;
+    background: #27ae60;
 }
-
+ 
+/* PICO DE PRODUCCIÓN */
+ 
 .mes-pico {
-    background-color: #d1b440;
-    transition: 0.3s;
+    background: #d1b440;
 }
-
-.mes-fuera:hover, .mes-temporada:hover, .mes-pico:hover {
-    transform: translateY(-5px);
+ 
+/* LEYENDA */
+ 
+.temporada > :last-child {
+    margin-top: 28px;
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
 }
-
+ 
+/* RESPONSIVE */
+ 
+@media screen and (max-width: 900px) {
+ 
+    .temporada {
+        padding: 45px 25px 60px;
+    }
+ 
+    .calendario {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+ 
+@media screen and (max-width: 550px) {
+ 
+    .temporada {
+        padding: 35px 15px 50px;
+    }
+ 
+    .temporada h2 {
+        font-size: 24px;
+    }
+ 
+    .temporada > p {
+        font-size: 14px;
+    }
+ 
+    .calendario {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+ 
+    .calendario div {
+        padding: 18px;
+    }
+ 
+    .temporada > :last-child {
+        font-size: 13px;
+    }
+}
+ 
 /*===============ESTILOS CONTACTO===============*/
-.logo-pag-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 40px;
+.pag-info {
+    width: 100%;
+    padding: 50px 7%;
+    background: #f4f6f9;
 }
-
-.pag-info h3 {
-    color: #FF7700;
+ 
+.info {
+    max-width: 1200px;
+    margin: 0 auto;
 }
-.proposito, .vision,
-.quienes-somos, .medios-contacto,
-.mision, .valores, .certificaciones {
-    padding: 20px 15px;
-    margin: 35px 15px;
-    text-align: justify;
-}
-
-.proposito p, .mision p,
-.vision p, .quienes-somos p {
-    padding: 15px;
-}
-
-.medios-contacto h3{margin-bottom: 15px;}
-.medios-contacto span { padding: 15px;}
-
-.valores ul,
-.certificaciones ul {
-    list-style: none;
-}
-
-.valores li,
-.certificaciones li {
-    padding: 10px;
-}
-
+ 
+/*========== LOGO ==========*/
+ 
 .logo-info {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    margin: 40px;
-
-    font-size: 22px;
-    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 10px auto 55px;
 }
-
-.logo-info i {
-    font-size: 100px;
-}
-
-/*===============ESTILOS PERFIL===============*/
-.usr-profile {
+ 
+.logo-info div {
+    width: 120px;
+    height: 120px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 20px 10px;
+    background: #fff3e6;
+    border-radius: 50%;
+    margin-bottom: 18px;
+    box-shadow: 0 8px 20px rgba(154, 52, 18, 0.12);
 }
-
+ 
+.logo-info i {
+    font-size: 65px;
+    color: #ea580c;
+}
+ 
+.logo-info h2 {
+    font-size: 34px;
+    color: #9a3412;
+    margin: 0;
+}
+ 
+/*========== SECCIONES GENERALES ==========*/
+ 
+.proposito,
+.mision,
+.vision,
+.quienes-somos,
+.valores,
+.certificaciones,
+.medios-contacto {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 30px;
+    margin: 25px 0;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+    border: 1px solid #f0e2d3;
+}
+ 
+.pag-info h3 {
+    color: #ea580c;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+ 
+.pag-info p {
+    color: #555;
+    line-height: 1.8;
+    text-align: justify;
+}
+ 
+/*========== PROPÓSITO / MISIÓN / VISIÓN ==========*/
+ 
+.proposito,
+.mision,
+.vision {
+    position: relative;
+    overflow: hidden;
+}
+ 
+.proposito::before,
+.mision::before,
+.vision::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    background: #ea580c;
+}
+ 
+.proposito p,
+.mision p,
+.vision p {
+    padding: 0;
+    margin: 0;
+}
+ 
+/*========== VALORES ==========*/
+ 
+.valores ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 20px;
+}
+ 
+.valores li {
+    background: #fff8f2;
+    border: 1px solid #f0e2d3;
+    border-radius: 14px;
+    padding: 20px;
+    color: #555;
+    line-height: 1.6;
+    transition: 0.3s;
+}
+ 
+.valores li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    border-color: #ea580c;
+}
+ 
+.valores h4 {
+    color: #9a3412;
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+ 
+/*========== QUIÉNES SOMOS ==========*/
+ 
+.quienes-somos {
+    background: linear-gradient(135deg, #fff3e6, #ffffff);
+}
+ 
+.quienes-somos p {
+    font-size: 16px;
+}
+ 
+/*========== CERTIFICACIONES ==========*/
+ 
+.certificaciones ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+ 
+.certificaciones li {
+    background: #fff8f2;
+    padding: 18px 20px;
+    border-radius: 12px;
+    border-left: 5px solid #ea580c;
+    color: #555;
+    line-height: 1.5;
+}
+ 
+/*========== MEDIOS DE CONTACTO ==========*/
+ 
+.medios-contacto {
+    background: #9a3412;
+    color: white;
+}
+ 
+.medios-contacto h3 {
+    color: #FFD580;
+    margin-bottom: 25px;
+}
+ 
+.contacto-item-md {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+ 
+.contacto-item-md:hover {
+    background: rgba(255, 255, 255, 0.16);
+    transform: translateX(5px);
+}
+ 
+.contacto-item-md i {
+    width: 35px;
+    text-align: center;
+    font-size: 20px;
+    color: #FFD580;
+}
+ 
+.contacto-item-md span {
+    padding: 0;
+    color: white;
+}
+ 
+/*========== RESPONSIVE ==========*/
+ 
+@media screen and (max-width: 800px) {
+ 
+    .pag-info {
+        padding: 35px 20px;
+    }
+ 
+    .logo-info h2 {
+        font-size: 28px;
+    }
+ 
+    .valores ul,
+    .certificaciones ul {
+        grid-template-columns: 1fr;
+    }
+ 
+    .proposito,
+    .mision,
+    .vision,
+    .quienes-somos,
+    .valores,
+    .certificaciones,
+    .medios-contacto {
+        padding: 25px 20px;
+    }
+}
+ 
+@media screen and (max-width: 500px) {
+ 
+    .pag-info {
+        padding: 25px 15px;
+    }
+ 
+    .logo-info {
+        margin-bottom: 35px;
+    }
+ 
+    .logo-info div {
+        width: 95px;
+        height: 95px;
+    }
+ 
+    .logo-info i {
+        font-size: 50px;
+    }
+ 
+    .logo-info h2 {
+        font-size: 24px;
+    }
+ 
+    .pag-info h3 {
+        font-size: 20px;
+    }
+ 
+    .pag-info p {
+        font-size: 14px;
+        text-align: left;
+    }
+ 
+    .contacto-item-md {
+        padding: 14px;
+    }
+}
+ 
+ 
+/*===============ESTILOS PERFIL===============*/
+.main-perfil {
+    min-height: calc(100vh - 80px);
+    padding: 60px 30px 80px;
+    background: #f4f6f9;
+}
+ 
+/* TARJETA DEL PERFIL */
+ 
+.usr-profile {
+    width: 420px;
+    margin: 0 auto;
+    padding: 35px 40px;
+    background: #ffffff;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+ 
+/* TÍTULO */
+ 
 .usr-profile h2 {
-    margin: 40px 0px;
+    margin: 0 0 25px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
 }
-
-.usr-profile i {
-    font-size: 100px;
+ 
+/* ICONO */
+ 
+.usr-profile > i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: #fdf1e9;
+    color: #333;
+    font-size: 48px;
 }
-
+ 
+/* NOMBRE */
+ 
+.usr-profile h3 {
+    margin: 0 0 25px;
+    font-size: 21px;
+    font-weight: 600;
+    color: #333;
+}
+ 
+/* BOTONES */
+ 
+.btn-logout-container,
+.prfUpdate-container {
+    margin-top: 15px;
+}
+ 
+/* HISTORIAL */
+ 
 .historial-pedidos {
-    margin: 50px 10px;
+    max-width: 1100px;
+    margin: 55px auto 0;
 }
-
+ 
 .historial-pedidos h2 {
     text-align: center;
-    margin: 40px 0px;
+    margin: 0 0 30px;
+    font-size: 27px;
+    color: #333;
 }
-
-.pedidos-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.pedidos-container h3 {
-    margin: 15px 0px;
-}
-
-.pd-entregados,
-.pd-encurso,
-.pd-cancelados {
-    width: 260px;
-    height: 170px;
-    background-color: #f4b52c;
-    border-radius: 30px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-}
-
-.pd-entregados:hover {
-    background-color: #229e3b;
-    font-size: large;
-    color: #fff;
-}
-.pd-encurso:hover {
-    background-color: #f2f244;
-    font-size: large;
-}
-.pd-cancelados:hover {
-    background-color: #cc3333;
-    font-size: large;
-    color: #fff;
-}
-
-.prfUpdate-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 35px;
-}
-
-.btn-frmUpdt-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn-frmUpdt-container button {
-    margin-bottom: 35px;
+ 
+.historial-pedidos > p {
+    text-align: center !important;
     width: 100%;
+    margin: 35px auto 60px;
+    padding: 18px;
+    color: #666;
+    font-size: 16px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
 }
-
+ 
 /*---------------------- ESTILOS ADMIN ----------------------*/
-
+ 
 /*=============== CONTENEDOR PRINCIPAL ===============*/
 .dashboard {
     display: flex;
     min-height: 100vh;
 }
-
+ 
 /*=============== SIDEBAR ===============*/
 .sidebar {
     width: 260px;
@@ -692,12 +975,12 @@ button a{
     color: white;
     padding: 30px 20px;
     position: fixed;
-
+ 
     left: 0;
     top: 0;
     bottom: 0;
 }
-
+ 
 .sidebar .logo {
     display: flex;
     align-items: center;
@@ -707,19 +990,19 @@ button a{
     margin-bottom: 45px;
     color: white;
 }
-
+ 
 .sidebar .logo i {
     font-size: 28px;
     color: #FFD580;
 }
-
+ 
 /*=============== MENÚ ===============*/
 .menu {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-
+ 
 .menu a {
     display: flex;
     align-items: center;
@@ -729,29 +1012,29 @@ button a{
     color: white;
     transition: .3s;
     font-weight: 600;
-
+ 
 }
-
+ 
 .menu a:hover {
     background: rgba(255, 255, 255, .15);
 }
-
+ 
 .menu .active {
     background: #ea580c;
 }
-
+ 
 .menu i {
     width: 25px;
     text-align: center;
 }
-
+ 
 /*=============== CONTENIDO PRINCIPAL ===============*/
 .contenido {
     margin-left: 260px;
     width: calc(100% - 260px);
     padding: 35px;
 }
-
+ 
 /*=============== TOPBAR ===============*/
 .topbar {
     display: flex;
@@ -759,7 +1042,7 @@ button a{
     align-items: center;
     margin-bottom: 35px;
 }
-
+ 
 /*=============== BUSCADOR ===============*/
 .busqueda {
     display: flex;
@@ -771,7 +1054,7 @@ button a{
     width: 400px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
 }
-
+ 
 .busqueda input {
     border: none;
     outline: none;
@@ -779,14 +1062,14 @@ button a{
     font-size: 15px;
     background: transparent;
 }
-
+ 
 /*=============== ACCIONES ===============*/
 .acciones {
     display: flex;
     align-items: center;
     gap: 15px;
 }
-
+ 
 .acciones button {
     width: 45px;
     height: 45px;
@@ -794,44 +1077,61 @@ button a{
     background: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
 }
-
+ 
 .acciones button:hover {
     background: #ea580c;
     color: white;
 }
-
+ 
 .admin-info {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-left: 10px;
 }
-
+ 
 .admin-info h4 {
     font-size: 16px;
 }
-
+ 
 .admin-info span {
     color: gray;
     font-size: 13px;
 }
 
+.pedidos-vacio {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 35px 40px;
+    text-align: center;
+    width: 420px;
+    margin: 35px auto;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+.pedidos-vacio h3 {
+    color: #8a3306;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+ 
 /*=============== BIENVENIDA ===============*/
 .bienvenida {
     margin-bottom: 35px;
 }
-
+ 
 .bienvenida h1 {
     font-size: 34px;
     color: #9a3412;
     margin-bottom: 10px;
 }
-
+ 
 .bienvenida p {
     color: #666;
     line-height: 1.6;
 }
-
+ 
 /*=============== TARJETAS ESTADÍSTICAS ===============*/
 .estadisticas {
     display: grid;
@@ -839,7 +1139,7 @@ button a{
     gap: 25px;
     margin-bottom: 35px;
 }
-
+ 
 .estadistica {
     background: white;
     border-radius: 18px;
@@ -847,34 +1147,34 @@ button a{
     box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
     transition: .3s;
 }
-
+ 
 .estadistica:hover {
     transform: translateY(-6px);
 }
-
+ 
 .estadistica h4 {
     color: gray;
     margin-bottom: 12px;
 }
-
+ 
 .estadistica h2 {
     color: #ea580c;
     font-size: 34px;
     margin-bottom: 10px;
 }
-
+ 
 .estadistica span {
     color: green;
     font-size: 14px;
 }
-
+ 
 .panel-dashboard {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
     margin-bottom: 35px;    
 }
-
+ 
 .card-grande {
     background: white;
     border-radius: 18px;
@@ -882,28 +1182,28 @@ button a{
     box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
     transition: .3s;
 }
-
+ 
 .card-grande:hover {
     transform: translateY(-6px);    
 }
-
+ 
 .titulo-card h2 {
     color: gray;
     margin-bottom: 20px;
 }
-
+ 
 .titulo-card span {
     color: #ea580c;
     font-size: 20px;
     font-weight: bold;
 }
-
+ 
 .grafico p {
     color: green;
     font-size: 14px;
     margin-top: 30%;
 }
-
+ 
 .card {
     background: white;
     border-radius: 18px;
@@ -911,11 +1211,171 @@ button a{
     box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
     transition: .3s;
 }
-
+ 
 .card:hover {
     transform: translateY(-6px);    
 }
-
+ 
 .productos {
     list-style: none;
+}
+ 
+
+/*---------------------- ESTILOS CARRITO ----------------------*/
+
+/* ===================== ENCABEZADO CARRITO ========================== */
+.carrito-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.carrito-header h2 {
+    color: #8a3306;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.btnVolver-carrito {
+    margin: 15px 10%;
+}
+
+.alert {
+    background-color: #8a3306;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    text-align: center;
+}
+
+.carrito-vacio {
+    width: 420px;
+    margin: 0 auto;
+    padding: 35px 40px;
+    background: #ffffff;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+.carrito-vacio p {
+    margin: 15px 0;
+}
+
+/* ===================== TABLA CARRITO ========================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+th, td {
+    /* border: 1px solid #f0e2d3; */
+    border: 1px solid #333;
+    padding: 12px;
+    text-align: left;
+}
+ 
+th {
+    background-color: #d9531e;
+    color: white;
+    text-align: center;
+}
+ 
+td button {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+
+tbody tr:hover {
+    background-color: #fff8f2;
+}
+
+.table-section {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+ 
+.resumen-carrito {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 35px 40px;
+    text-align: center;
+    width: 620px;
+    margin: 35px auto;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+.resumen-carrito h3 {
+    margin-bottom: 20px;
+}
+
+
+/*---------------------- ESTILOS COMPRA ----------------------*/
+
+.FacturaCompra-container {
+    display: grid;
+    grid-template-columns: 900px 1fr;
+    min-height: 100vh;
+}
+
+/* ===================== ENCABEZADO COMPRA ========================== */
+
+.factura-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.factura-header h2 {
+    color: #8a3306;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* ===================== TABLA/FACTURA COMPRA ========================== */
+.factura-total {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 35px 40px;
+    text-align: center;
+    width: 320px;
+    margin: 35px auto;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+.factura-total p {
+    margin-bottom: 20px;
+    font-size: larger;
+}
+
+/* ===================== PAGO COMPRA ========================== */
+
+.pago-container {
+    margin: auto 35px;
+    background-color: #fff;
+    border-radius: 25px;
+    padding: 35px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pago-container h2 {
+    color: #8a3306;
+    text-align: center;
+    margin-bottom: 25px;
 }

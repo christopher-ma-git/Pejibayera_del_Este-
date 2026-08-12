@@ -333,4 +333,75 @@ class User {
         $stmt->close();
         return $correcto;
     }
+
+    /**
+     * Calcula el porcentaje de crecimiento.
+     *
+     * @param int $valorInicial
+     * @param int $valorFinal
+     * @return float
+     */
+    private function calcularCrecimiento($valorInicial, $valorFinal) {
+        if ($valorInicial <= 0) {
+            return ($valorFinal > 0) ? 100.00 : 0.00;
+        }
+
+        return round((($valorFinal - $valorInicial) / $valorInicial) * 100, 2);
+    }
+
+    /**
+     * Obtiene el total de clientes y el crecimiento mensual.
+     *
+     * @return array
+     */
+    public function getContarClientes() {
+        $sql = "SELECT COUNT(*) AS total FROM users WHERE rol = 'Cliente'";
+
+        $stmt = $this->ejecutarConsulta($sql);
+        $resultado = $stmt->get_result();
+        $totalActual = $resultado->fetch_assoc()['total'];
+        $stmt->close();
+
+        $sql = "SELECT COUNT(*) AS nuevos
+                FROM users
+                WHERE rol = 'Cliente'
+                AND MONTH(fechaRegistro) = MONTH(CURDATE())
+                AND YEAR(fechaRegistro) = YEAR(CURDATE())";
+
+        $stmt = $this->ejecutarConsulta($sql);
+        $resultado = $stmt->get_result();
+        $nuevos = $resultado->fetch_assoc()['nuevos'];
+        $stmt->close();
+
+        $valorInicial = $totalActual - $nuevos;
+        return ['total' => $totalActual, 'crecimiento' => $this->calcularCrecimiento($valorInicial, $totalActual)];
+    }
+
+    /**
+     * Obtiene el total de empresas y el crecimiento mensual.
+     *
+     * @return array
+     */
+    public function getContarEmpresas() {
+        $sql = "SELECT COUNT(*) AS total FROM users WHERE rol = 'Empresa'";
+
+        $stmt = $this->ejecutarConsulta($sql);
+        $resultado = $stmt->get_result();
+        $totalActual = $resultado->fetch_assoc()['total'];
+        $stmt->close();
+
+        $sql = "SELECT COUNT(*) AS nuevos
+                FROM users
+                WHERE rol = 'Empresa'
+                AND MONTH(fechaRegistro) = MONTH(CURDATE())
+                AND YEAR(fechaRegistro) = YEAR(CURDATE())";
+
+        $stmt = $this->ejecutarConsulta($sql);
+        $resultado = $stmt->get_result();
+        $nuevos = $resultado->fetch_assoc()['nuevos'];
+        $stmt->close();
+
+        $valorInicial = $totalActual - $nuevos;
+        return ['total' => $totalActual, 'crecimiento' => $this->calcularCrecimiento($valorInicial, $totalActual)];
+    }
 }

@@ -82,6 +82,26 @@ class DetallePedido {
     }
 
     /**
+     * Obtiene todos los pedidos registrados.
+     *
+     * @return array
+     */
+    public function getAll() {
+        $sql = "SELECT * FROM DetallePedido ORDER BY idDetallePedido DESC";
+    
+        $stmt = $this->ejecutarConsulta($sql);
+        $resultado = $stmt->get_result();
+        $pedidos = [];
+    
+        while ($fila = $resultado->fetch_assoc()) {
+            $pedidos[] = $fila;
+        }
+    
+        $stmt->close();
+        return $pedidos;
+    }
+
+    /**
      * Obtiene todos los productos de un pedido.
      *
      * @param int $idPedido

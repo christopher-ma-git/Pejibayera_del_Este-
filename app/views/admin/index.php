@@ -14,6 +14,17 @@
                 <i class="fa-solid fa-chart-line"></i>
                 Dashboard
             </a>
+
+            <a href="<?= BASE_URL ?>/admin/pedidosCliente" class="">
+                <i class="fa-regular fa-user"></i>
+                Pedidos Clientes
+            </a>
+
+            <a href="<?= BASE_URL ?>/admin/pedidosEmpresa" class="">
+                <i class="fa-regular fa-building"></i>
+                Pedidos Empresa
+            </a>
+
             <a href="<?= BASE_URL ?>/auth/logout">
                 <i class="fa-solid fa-door-closed"></i>
                 Cerrar Sesión
@@ -37,65 +48,59 @@
         <section class="estadisticas">
             <article class="estadistica">
                 <h4>Total Clientes</h4>
-                <h2>2,847</h2>
-                <span>+12% este mes</span>
+                <h2><?= $data['clientes']['total']; ?></h2>
+                <span>
+                    +<?= number_format($data['clientes']['crecimiento'], 2); ?>%
+                    este mes
+                </span>
             </article>
 
             <article class="estadistica">
                 <h4>Total Empresas</h4>
-                <h2>184</h2>
-                <span>+8% este mes</span>
+                <h2><?= $data['empresas']['total']; ?></h2>
+                <span>
+                    +<?= number_format($data['empresas']['crecimiento'], 2); ?>%
+                    este mes
+                </span>
             </article>
 
             <article class="estadistica">
                 <h4>Pedidos</h4>
-                <h2>5,621</h2>
-                <span>+17% este mes</span>
+                <h2><?= $data['pedidos']['total']; ?></h2>
+                <span>
+                    +<?= number_format($data['pedidos']['crecimiento'], 2); ?>%
+                    este mes
+                </span>
             </article>
 
             <article class="estadistica">
                 <h4>Ventas</h4>
-                <h2>₡128,430</h2>
-                <span>+22% este mes</span>
+                <h2>₡<?= number_format($data['ventas']['total'], 2); ?></h2>
+                <span>
+                    +<?= number_format($data['ventas']['crecimiento'], 2); ?>%
+                    este mes
+                </span>
             </article>
         </section>
 
         <!--PANEL PRINCIPAL-->
         <section class="panel-dashboard">
-            <!-- Ventas -->
-            <article class="card-grande">
-                <div class="titulo-card">
-                    <h2>Ventas Mensuales</h2>
-                    <span>Enero - Junio 2026</span>
-                </div>
-                <div class="grafico">
-                    <div class="linea"></div>
-                    <p>📈 Aquí irá el gráfico de ventas.</p>
-                </div>
-            </article>
-
             <!-- Productos -->
             <article class="card">
                 <div class="titulo-card">
                     <h2>Productos Más Vendidos</h2>
                 </div>
                 <ul class="productos">
-                    <li>
-                        <span>🥇 Pejibaye Grande</span>
-                        <strong>425 ventas</strong>
-                    </li>
-                    <li>
-                        <span>🥈 Pejibaye Pequeño</span>
-                        <strong>382 ventas</strong>
-                    </li>
-                    <li>
-                        <span>🥉 Harina de Pejibaye</span>
-                        <strong>201 ventas</strong>
-                    </li>
-                    <li>
-                        <span>🌴 Pejibaye Cocido</span>
-                        <strong>148 ventas</strong>
-                    </li>
+                    <?php foreach ($data['productosMasVendidos'] as $producto): ?>
+                        <li>
+                            <span>
+                                <?= htmlspecialchars($producto['nombreProducto']); ?>
+                            </span>
+                            <strong>
+                                <?= $producto['totalVentas']; ?> ventas
+                            </strong>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
             </article>
 

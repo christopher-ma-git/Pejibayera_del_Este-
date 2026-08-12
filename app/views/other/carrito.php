@@ -5,15 +5,21 @@
 
         <div class="carrito-header">
             <h2>Carrito de Compras</h2>
-            <button>
-                <a href="<?= $inicioUrl ?>" class="btn-volver">
-                    ← Volver
+        </div>
+
+        <div class="btnVolver-carrito">
+            <button class="btn-volver">
+                <a href="<?= $inicioUrl ?>">
+                    <i class="fa-solid fa-left-long"></i>
                 </a>
             </button>
         </div>
-
-        <?php if(isset($data['error'])): ?>
-            <div class="alert alert-danger"><?= $data['error'] ?></div>
+        
+        <?php if (isset($_SESSION['error'])): ?>
+                <div class="alert alert-danger">
+                    <?= $_SESSION['error']; ?>
+                </div>
+                <?php unset($_SESSION['error']); ?>
         <?php endif; ?>
 
         <?php if (!empty($data['productos'])) : ?>
@@ -54,16 +60,11 @@
 
                             <td>
                                 <form action="<?= BASE_URL ?>/carrito/updateCantidad" method="POST">
-                                    <input
-                                        type="hidden"
-                                        name="idDetalleCarrito"
-                                        value="<?= $producto['idDetalleCarrito']; ?>">
-                                    <input
-                                        type="number"
-                                        name="cantidad"
-                                        min="1"
-                                        max="<?= $producto['cantidadStock']; ?>"
-                                        value="<?= $producto['cantidadCarrito']; ?>">
+                                    <input type="hidden" name="idDetalleCarrito" 
+                                            value="<?= $producto['idDetalleCarrito']; ?>">
+
+                                    <input type="number" name="cantidad" min="1" max="<?= $producto['cantidadStock']; ?>"
+                                            value="<?= $producto['cantidadCarrito']; ?>">
                                     <button type="submit">
                                         Actualizar
                                     </button>
@@ -96,22 +97,22 @@
                     Total:
                     ₡<?= number_format($data['total'], 0, ',', '.'); ?>
                 </h3>
+
+                <div class="btn-ResumenCarrito-container">
+                    <button>
+                        <a href="<?= BASE_URL ?>/carrito/eliminarCarrito" class="btn-frmCarrito-eliminarTodo">
+                            Eliminar Carrito
+                        </a>
+                    </button>
+
+                    <button>
+                        <a href="<?= BASE_URL ?>/carrito/comprar" class="btn-frmCarrito-comprarTodo">
+                            Comprar Ahora
+                        </a>
+                    </button>
+                </div>
             </div>
-
-            <div class="acciones-carrito">
-                <button>
-                    <a href="<?= BASE_URL ?>/carrito/eliminarCarrito" class="btn-eliminar-carrito">
-                        Eliminar Carrito
-                    </a>
-                </button>
-
-                <button>
-                    <a href="<?= BASE_URL ?>/carrito/comprar" class="btn-comprar">
-                        Comprar Ahora
-                    </a>
-                </button>
-            </div>
-
+            
         <?php else : ?>
             <div class="carrito-vacio">
                 <h3>Tu carrito está vacío.</h3>
@@ -120,11 +121,13 @@
                     Agrega productos para comenzar una compra.
                 </p>
 
-                <button>
-                    <a href="<?= $inicioUrl ?>" class="btn-volver">
-                        Volver a la tienda
-                    </a>
-                </button>
+                <div class="btn-salir-container">
+                    <button>
+                        <a href="<?= $inicioUrl ?>">
+                            Volver a la tienda
+                        </a>
+                    </button>
+                </div>
             </div>
         <?php endif; ?>
 

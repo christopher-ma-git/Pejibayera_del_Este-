@@ -76,13 +76,12 @@ class Carrito {
      * @param int $idUsuario
      * @return int
      */
-    public function crearCarrito($idUsuario) {
-        $sql = "INSERT INTO Carrito (idUsuario)
-                VALUES (?)";
+    public function crearCarrito($idUsuario, $fechaEntrega = null, $observaciones = null) {
+        $sql = "INSERT INTO Carrito (idUsuario, fechaEntrega, observaciones)
+                VALUES (?, ?, ?)";
 
-        $stmt = $this->ejecutarConsulta($sql, "i", $idUsuario);
+        $stmt = $this->ejecutarConsulta($sql, "iss", $idUsuario, $fechaEntrega, $observaciones);
         $stmt->close();
-
         return $this->db->insert_id;
     }
 
@@ -93,11 +92,11 @@ class Carrito {
      * @param int $idProducto
      * @param int $cantidad
      */
-    public function agregarProducto($idUsuario, $idProducto, $cantidad = 1) {
+    public function agregarProducto($idUsuario, $idProducto, $cantidad = 1, $fechaEntrega = null, $observaciones = null) { //linea que cambio $cantidad = 1
         $carrito = $this->getCarritoActivo($idUsuario);
 
         if (!$carrito) {
-            $idCarrito = $this->crearCarrito($idUsuario);
+            $idCarrito = $this->crearCarrito($idUsuario, $fechaEntrega, $observaciones);
         } else {
             $idCarrito = $carrito['idCarrito'];
         }
@@ -356,6 +355,36 @@ class Carrito {
         );
         $stmt->close();
     }
+
+    /**
+     * Obtiene un detalle del carrito junto con el stock del producto.
+     *
+     * @param int $idDetalleCarrito
+     * @return array|null
+     */
+    public function getDetalleById($idDetalleCarrito) {
+        $sql = "SELECT
+                    dc.idDetalleCarrito,
+                    dc.cantidadCarrito,
+                    p.idProducto,
+                    p.cantidadStock
+                FROM DetalleCarrito dc
+                INNER JOIN Producto p
+                    ON dc.idProducto = p.idProducto
+                WHERE dc.idDetalleCarrito = ?";
+
+        $stmt = $this->ejecutarConsulta(
+            $sql,
+            "i",
+            $idDetalleCarrito
+        );
+
+        $resultado = $stmt->get_result();
+        $detalle = $resultado->fetch_assoc();
+        $stmt->close();
+        return $detalle;
+    }
+
 
 }
 

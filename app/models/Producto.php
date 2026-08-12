@@ -196,16 +196,13 @@ class Producto {
      * @param int $cantidadVendida
      * @return bool
      */
-    public function updateStock($idProducto, $cantidadVendida) {
+    public function updateStock($idProducto, $nuevoStock) {
         $producto = $this->getById($idProducto);
-
         if (!$producto) {
             return false;
         }
 
-        $stockNuevo = $producto['cantidadStock'] - $cantidadVendida;
-
-        if ($stockNuevo < 0) {
+        if ($nuevoStock < 0) {
             return false;
         }
 
@@ -214,7 +211,7 @@ class Producto {
         $stmt = $this->ejecutarConsulta(
             $sql,
             "ii",
-            $stockNuevo,
+            $nuevoStock,
             $idProducto
         );
 
@@ -270,6 +267,38 @@ class Producto {
                 ORDER BY p.nombreProducto";
 
         $stmt = $this->ejecutarConsulta($sql, "i", $idCategoria);
+        $resultado = $stmt->get_result();
+        $productos = [];
+
+        while ($fila = $resultado->fetch_assoc()) {
+            $productos[] = $fila;
+        }
+
+        $stmt->close();
+        return $productos;
+    }
+
+    /**
+     * Obtiene todos los productos disponibles para venta empresarial.
+     *
+     * @return array
+     */
+    public function getEmpresariales() {
+        $sql = "SELECT
+                    p.*,
+                    c.nombreCategoria,
+                    pr.tipoEmpaque,
+                    pr.peso,
+                    pr.tamaño
+                FROM Producto p
+                INNER JOIN Categoria c
+                    ON p.idCategoria = c.idCategoria
+                INNER JOIN Presentacion pr
+                    ON p.idPresentacion = pr.idPresentacion
+                WHERE p.ventaEmpresarial = 1
+                ORDER BY p.nombreProducto ASC";
+
+        $stmt = $this->ejecutarConsulta($sql);
         $resultado = $stmt->get_result();
         $productos = [];
 
