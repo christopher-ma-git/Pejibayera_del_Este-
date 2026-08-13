@@ -11,6 +11,19 @@
         <?php endif; ?>
 
         <form action="<?= BASE_URL ?>/auth/registro" method="POST">
+            <label for="rol">Tipo de usuario</label>
+            <select id="rol" name="rol" required>
+                <option value="" selected disabled>
+                    Seleccione un tipo de usuario
+                </option>
+                <option value="Cliente">
+                    Cliente
+                </option>
+                <option value="Empresa">
+                    Empresa
+                </option>
+            </select>
+
             <label for="nombre">Nombre de usuario</label>
             <input type="text" id="nombre" name="nombre" required placeholder="Ingrese un nombre de usuario">
 
@@ -36,19 +49,6 @@
 
             <label for="direccion">Dirección (opcional)</label>
             <input type="text" id="direccion" name="direccion" placeholder="Ingrese su dirección">
-
-            <label for="rol">Tipo de usuario</label>
-            <select id="rol" name="rol" required>
-                <option value="" selected disabled>
-                    Seleccione un tipo de usuario
-                </option>
-                <option value="Cliente">
-                    Cliente
-                </option>
-                <option value="Empresa">
-                    Empresa
-                </option>
-            </select>
 
             <div class="btn-frmRgst-container">
                 <button type="submit">
